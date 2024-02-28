@@ -1,7 +1,14 @@
-import { computed, useRoute, useRouter, type ComputedRef } from '#imports'
 import { type RouteRecordNormalized } from '#vue-router'
 import { defu } from 'defu'
 import { titleCase } from 'scule'
+import {
+  computed,
+  useAppConfig,
+  useRuntimeConfig,
+  useRoute,
+  useRouter,
+  type ComputedRef
+} from '#imports'
 import {
   joinURL,
   parseFilename,
