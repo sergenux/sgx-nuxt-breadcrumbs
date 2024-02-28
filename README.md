@@ -393,13 +393,13 @@ Pages:
 -| index.vue
 ```
 
-Generated auto-breadcrumbs:
+Generated breadcrumbs:
 
 - `/` - Home
-- `/blog` - Home > Blog
-- `/blog/post-1` - Home > Blog > Post 1
-- `/blog/post-2` - Home > Blog > Post 2
-- `/blog/post-3` - Home > Blog > Post 3
+- `/blog` - Home `>` Blog
+- `/blog/post-1` - Home `>` Blog `>` Post 1
+- `/blog/post-2` - Home `>` Blog `>` Post 2
+- `/blog/post-3` - Home `>` Blog `>` Post 3
 
 ## Development
 

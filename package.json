@@ -1,6 +1,6 @@
 {
   "name": "sgx-nuxt-breadcrumbs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Breadcrumbs feature for Nuxt",
   "repository": {
     "type": "git",
