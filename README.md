@@ -74,13 +74,13 @@ interface PageMeta {
   // Default: Auto-title from URL slug
   title?: string
 
-  // Item/items before
+  // Custom item/items before
   breadcrumbsBefore?: BreadcrumbsItem | BreadcrumbsItem[]
 
   // Breadcrumbs item
   breadcrumbsItem?: BreadcrumbsItem
 
-  // Item/items after
+  // Custom item/items after
   breadcrumbsAfter?: BreadcrumbsItem | BreadcrumbsItem[]
 
   // Breadcrumbs params
@@ -246,6 +246,7 @@ definePageMeta({
       // Other params...
     }
 
+    // Add categories
     route.meta.breadcrumbsBefore = data.categories.map((category) => {
       return { label: category.name, to: '/categories/' + category.slug }
     })
