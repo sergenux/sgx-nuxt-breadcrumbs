@@ -274,7 +274,7 @@ interface Slot {
   // Breadcrumbs items
   items: Item[]
 
-  // Breadcrumbs custom params
+  // Custom params
   [key: string]: unknown
 }
 
