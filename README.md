@@ -71,16 +71,16 @@ export default defineNuxtConfig({
 ```ts
 interface PageMeta {
   // Base page title
-  // Default: Auto-title from URL slug
+  // Default: Generated from URL slug
   title?: string
 
-  // Custom item/items before
+  // Add custom breadcrumbs item/items before
   breadcrumbsBefore?: BreadcrumbsItem | BreadcrumbsItem[]
 
-  // Breadcrumbs item
+  // Breadcrumbs item params
   breadcrumbsItem?: BreadcrumbsItem
 
-  // Custom item/items after
+  // Add custom breadcrumbs item/items after
   breadcrumbsAfter?: BreadcrumbsItem | BreadcrumbsItem[]
 
   // Breadcrumbs params
@@ -93,21 +93,21 @@ interface PageMeta {
   }
 }
 
-// Item params
+// Breadcrumbs item params
 interface BreadcrumbsItem {
   // Label
   // Default: Inherit from base page title
   label?: string
 
   // Path
-  // Default: From router
+  // Default: From router config
   to?: string
 
-  // Exclude item from breadcrumbs
+  // Exclude breadcrumbs item
   // Default: false
   excluded?: boolean
 
-  // Exclude previous items from breadcrumbs
+  // Exclude previous breadcrumbs items
   // Default: false
   previousExcluded?: boolean
 
@@ -193,9 +193,9 @@ Custom params for item:
 <script setup lang="ts">
 definePageMeta({
   breadcrumbsItem: {
-    myIcon: 'my-icon',
-    myParam1: 'my-param-1',
-    myParam2: 'my-param-2'
+    myCustomIcon: 'my-custom-icon',
+    myCustomParam1: 'my-param-1',
+    myCustomParam2: 'my-param-2'
     // Other...
   }
 })
@@ -220,8 +220,8 @@ Custom params for breadcrumbs:
 <script setup lang="ts">
 definePageMeta({
   breadcrumbs: {
-    myParam1: 'my-param-1',
-    myParam2: 'my-param-2'
+    myCustomParam1: 'my-custom-param-1',
+    myCustomParam2: 'my-custom-param-2'
     // Other...
   }
 })
@@ -280,13 +280,16 @@ interface Slot {
 
 // Breadcrumbs item
 interface Item {
+  // Label
   label: string
+
+  // Path
   to: string
 
   // Active item
   current: boolean
 
-  // Item custom params
+  // Breadcrumbs item custom params
   [key: string]: unknown
 }
 ```
@@ -305,18 +308,18 @@ Override component template:
 
 ```vue
 <template>
-  <SgxBreadcrumbs v-slot="{ items, myParam1, myParam2 }">
+  <SgxBreadcrumbs v-slot="{ items, myCustomParam1, myCustomParam2 }">
     <ul>
       <li v-for="(item, index) in items" :key="index">
         <NuxtLink v-if="!item.current" :to="item.to">
-          <i>{{ item.myParamIcon }}</i>
+          <i>{{ item.myCustomIcon }}</i>
           <span>{{ item.label }}</span>
         </NuxtLink>
         <span v-else>{{ item.label }}</span>
       </li>
     </ul>
-    <p>{{ myParam1 }}</p>
-    <p>{{ myParam2 }}</p>
+    <p>{{ myCustomParam1 }}</p>
+    <p>{{ myCustomParam2 }}</p>
   </SgxBreadcrumbs>
 </template>
 ```
@@ -364,14 +367,14 @@ interface Item {
     <ul>
       <li v-for="(item, index) in breadcrumbs.items" :key="index">
         <NuxtLink v-if="!item.current" :to="item.to">
-          <i>{{ item.myParamIcon }}</i>
+          <i>{{ item.myCustomIcon }}</i>
           <span>{{ item.label }}</span>
         </NuxtLink>
         <span v-else>{{ item.label }}</span>
       </li>
     </ul>
-    <div>{{ breadcrumbs.myParam1 }}</div>
-    <div>{{ breadcrumbs.myParam2 }}</div>
+    <div>{{ breadcrumbs.myCustomParam1 }}</div>
+    <div>{{ breadcrumbs.myCustomParam2 }}</div>
   </div>
 </template>
 
