@@ -16,20 +16,20 @@ import {
   withoutTrailingSlash
 } from 'ufo'
 
-export interface Result {
-  items: Item[]
+export interface Breadcrumbs {
+  items: BreadcrumbsItem[]
   visible: boolean
   [key: string]: unknown
 }
 
-export interface Item {
+export interface BreadcrumbsItem {
   label: string
   to: string
   current: boolean
   [key: string]: unknown
 }
 
-export function useBreadcrumbs(): ComputedRef<Result> {
+export function useBreadcrumbs(): ComputedRef<Breadcrumbs> {
   const items = useBreadcrumbsItems()
   const meta = useBreadcrumbsMeta()
   return computed(() => ({

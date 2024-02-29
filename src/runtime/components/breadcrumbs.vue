@@ -22,11 +22,11 @@ interface Props {
 }
 
 interface Slot {
-  items: Item[]
+  items: BreadcrumbsItem[]
   [key: string]: unknown
 }
 
-interface Item {
+interface BreadcrumbsItem {
   label: string
   to: string
   current: boolean

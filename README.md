@@ -272,14 +272,13 @@ interface Props {
 
 interface Slot {
   // Breadcrumbs items
-  items: Item[]
+  items: BreadcrumbsItem[]
 
   // Custom params
   [key: string]: unknown
 }
 
-// Breadcrumbs item
-interface Item {
+interface BreadcrumbsItem {
   // Label
   label: string
 
@@ -332,12 +331,12 @@ Override component template:
 
 ```ts
 interface Composable {
-  (): ComputedRef<Result>
+  (): ComputedRef<Breadcrumbs>
 }
 
-interface Result {
+interface Breadcrumbs {
   // Breadcrumbs items
-  items: Item[]
+  items: BreadcrumbsItem[]
 
   // Component visibility
   visible: boolean
@@ -346,8 +345,7 @@ interface Result {
   [key: string]: unknown
 }
 
-// Breadcrumbs item
-interface Item {
+interface BreadcrumbsItem {
   // Label
   label: string
 
