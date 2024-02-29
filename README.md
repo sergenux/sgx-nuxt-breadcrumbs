@@ -103,11 +103,11 @@ interface BreadcrumbsItem {
   // Default: From router config
   to?: string
 
-  // Exclude breadcrumbs item
+  // Exclude item
   // Default: false
   excluded?: boolean
 
-  // Exclude previous breadcrumbs items
+  // Exclude previous items
   // Default: false
   previousExcluded?: boolean
 
@@ -187,15 +187,15 @@ definePageMeta({
 </script>
 ```
 
-Custom params for item:
+Custom params for breadcrumbs item:
 
 ```vue
 <script setup lang="ts">
 definePageMeta({
   breadcrumbsItem: {
     myCustomIcon: 'my-custom-icon',
-    myCustomParam1: 'my-param-1',
-    myCustomParam2: 'my-param-2'
+    myCustomParam1: 'my-custom-param-1',
+    myCustomParam2: 'my-custom-param-2'
     // Other...
   }
 })
@@ -286,10 +286,10 @@ interface Item {
   // Path
   to: string
 
-  // Active item
+  // Active
   current: boolean
 
-  // Breadcrumbs item custom params
+  // Custom params
   [key: string]: unknown
 }
 ```
@@ -342,19 +342,22 @@ interface Result {
   // Component visibility
   visible: boolean
 
-  // Breadcrumbs custom params
+  // Custom params
   [key: string]: unknown
 }
 
 // Breadcrumbs item
 interface Item {
+  // Label
   label: string
+
+  // Path
   to: string
 
-  // Active item
+  // Active
   current: boolean
 
-  // Item custom params
+  // Custom params
   [key: string]: unknown
 }
 ```
